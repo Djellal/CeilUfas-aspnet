@@ -1,170 +1,96 @@
-@page
+﻿@page
 @model CeilUfas.Pages.Admin.AppsettingsModel
+
 @{
-    ViewData["Title"] = "App Settings";
+    ViewData["Title"] = "Appsettings";
 }
 
-<div class="container">
-    <div class="row mb-4">
-        <div class="col">
-            <h1 class="display-4"><i class="bi bi-gear-fill me-2"></i>Application Settings</h1>
-            <hr />
-        </div>
-    </div>
+<h1>Appsettings</h1>
 
-    <form method="post" enctype="multipart/form-data">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card mb-4">
-                    <div class="card-header bg-primary text-white">
-                        <i class="bi bi-building me-2"></i>Organization Information
-                    </div>
-                    <div class="card-body">
-                        <!-- Logo upload section -->
-                        <div class="mb-4">
-                            <label class="form-label">
-                                <i class="bi bi-image me-1"></i> Organization Logo
-                            </label>
-                            <div class="d-flex align-items-center mb-2">
-                                @if (!string.IsNullOrEmpty(Model.AppSettings.LogoImagePath))
-                                {
-                                    <img src="~@Model.AppSettings.LogoImagePath" alt="Organization Logo" class="img-thumbnail me-3" style="max-height: 100px;" />
-                                }
-                                else
-                                {
-                                    <div class="bg-light border rounded p-3 text-center me-3" style="width: 100px; height: 100px;">
-                                        <i class="bi bi-image text-muted" style="font-size: 2rem;"></i>
-                                        <p class="small text-muted mb-0">No logo</p>
-                                    </div>
-                                }
-                            </div>
-                            <input type="file" class="form-control" name="LogoFile" accept="image/*" />
-                            <input type="hidden" asp-for="AppSettings.LogoImagePath" />
-                            <small class="text-muted">Recommended size: 200x200 pixels</small>
-                        </div>
-
-                        <div class="mb-3">
-                            <label asp-for="AppSettings.OrganizationName" class="form-label">
-                                <i class="bi bi-building-fill me-1"></i> Organization Name
-                            </label>
-                            <input asp-for="AppSettings.OrganizationName" class="form-control" />
-                            <span asp-validation-for="AppSettings.OrganizationName" class="text-danger"></span>
-                        </div>
-                        
-                        <div class="mb-3">
-                            <label asp-for="AppSettings.Address" class="form-label">
-                                <i class="bi bi-geo-alt-fill me-1"></i> Address
-                            </label>
-                            <input asp-for="AppSettings.Address" class="form-control" />
-                            <span asp-validation-for="AppSettings.Address" class="text-danger"></span>
-                        </div>
-                        
-                        <div class="mb-3">
-                            <label asp-for="AppSettings.Tel" class="form-label">
-                                <i class="bi bi-telephone-fill me-1"></i> Telephone
-                            </label>
-                            <input asp-for="AppSettings.Tel" class="form-control" />
-                            <span asp-validation-for="AppSettings.Tel" class="text-danger"></span>
-                        </div>
-                        
-                        <div class="mb-3">
-                            <label asp-for="AppSettings.Email" class="form-label">
-                                <i class="bi bi-envelope-fill me-1"></i> Email
-                            </label>
-                            <input asp-for="AppSettings.Email" class="form-control" />
-                            <span asp-validation-for="AppSettings.Email" class="text-danger"></span>
-                        </div>
-                        
-                        <div class="mb-3">
-                            <label asp-for="AppSettings.Website" class="form-label">
-                                <i class="bi bi-globe me-1"></i> Website
-                            </label>
-                            <input asp-for="AppSettings.Website" class="form-control" />
-                            <span asp-validation-for="AppSettings.Website" class="text-danger"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6">
-                <div class="card mb-4">
-                    <div class="card-header bg-primary text-white">
-                        <i class="bi bi-share-fill me-2"></i>Social Media
-                    </div>
-                    <div class="card-body">
-                        <div class="mb-3">
-                            <label asp-for="AppSettings.Facebook" class="form-label">
-                                <i class="bi bi-facebook me-1"></i> Facebook
-                            </label>
-                            <div class="input-group">
-                                <span class="input-group-text">facebook.com/</span>
-                                <input asp-for="AppSettings.Facebook" class="form-control" />
-                            </div>
-                            <span asp-validation-for="AppSettings.Facebook" class="text-danger"></span>
-                        </div>
-                        
-                        <div class="mb-3">
-                            <label asp-for="AppSettings.Twitter" class="form-label">
-                                <i class="bi bi-twitter me-1"></i> Twitter
-                            </label>
-                            <div class="input-group">
-                                <span class="input-group-text">twitter.com/</span>
-                                <input asp-for="AppSettings.Twitter" class="form-control" />
-                            </div>
-                            <span asp-validation-for="AppSettings.Twitter" class="text-danger"></span>
-                        </div>
-                        
-                        <div class="mb-3">
-                            <label asp-for="AppSettings.LinkedIn" class="form-label">
-                                <i class="bi bi-linkedin me-1"></i> LinkedIn
-                            </label>
-                            <div class="input-group">
-                                <span class="input-group-text">linkedin.com/company/</span>
-                                <input asp-for="AppSettings.LinkedIn" class="form-control" />
-                            </div>
-                            <span asp-validation-for="AppSettings.LinkedIn" class="text-danger"></span>
-                        </div>
-                        
-                        <div class="mb-3">
-                            <label asp-for="AppSettings.YouTube" class="form-label">
-                                <i class="bi bi-youtube me-1"></i> YouTube
-                            </label>
-                            <div class="input-group">
-                                <span class="input-group-text">youtube.com/</span>
-                                <input asp-for="AppSettings.YouTube" class="form-control" />
-                            </div>
-                            <span asp-validation-for="AppSettings.YouTube" class="text-danger"></span>
-                        </div>
-                    </div>
-                </div>
+<h4>AppSettings</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="AppSettings.Id" />
+            <div class="form-group">
                 
-                <div class="card mb-4">
-                    <div class="card-header bg-primary text-white">
-                        <i class="bi bi-toggles me-2"></i>System Settings
-                    </div>
-                    <div class="card-body">
-                        <div class="form-check form-switch mb-3">
-                            <input class="form-check-input" type="checkbox" asp-for="AppSettings.RegistrationIsOpened" id="registrationToggle">
-                            <label class="form-check-label" for="registrationToggle">
-                                <i class="bi bi-person-plus me-1"></i> Registration Is Open
-                            </label>
-                        </div>
-                    </div>
-                </div>
+                <label asp-for="AppSettings.OrganizationName" class="control-label"></label>
+                <input asp-for="AppSettings.OrganizationName" class="form-control" />
+                <span asp-validation-for="AppSettings.OrganizationName" class="text-danger"></span>
             </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-12 text-center mb-4">
-                <button type="submit" class="btn btn-primary btn-lg">
-                    <i class="bi bi-save me-2"></i>Save Settings
-                </button>
+            <div class="form-group">
+                
+                <label asp-for="AppSettings.Address" class="control-label"></label>
+                <input asp-for="AppSettings.Address" class="form-control" />
+                <span asp-validation-for="AppSettings.Address" class="text-danger"></span>
             </div>
-        </div>
-    </form>
+            <div class="form-group">
+                
+                <label asp-for="AppSettings.Tel" class="control-label"></label>
+                <input asp-for="AppSettings.Tel" class="form-control" />
+                <span asp-validation-for="AppSettings.Tel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="AppSettings.Email" class="control-label"></label>
+                <input asp-for="AppSettings.Email" class="form-control" />
+                <span asp-validation-for="AppSettings.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="AppSettings.Website" class="control-label"></label>
+                <input asp-for="AppSettings.Website" class="form-control" />
+                <span asp-validation-for="AppSettings.Website" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="AppSettings.Facebook" class="control-label"></label>
+                <input asp-for="AppSettings.Facebook" class="form-control" />
+                <span asp-validation-for="AppSettings.Facebook" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="AppSettings.Twitter" class="control-label"></label>
+                <input asp-for="AppSettings.Twitter" class="form-control" />
+                <span asp-validation-for="AppSettings.Twitter" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="AppSettings.LinkedIn" class="control-label"></label>
+                <input asp-for="AppSettings.LinkedIn" class="form-control" />
+                <span asp-validation-for="AppSettings.LinkedIn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="AppSettings.YouTube" class="control-label"></label>
+                <input asp-for="AppSettings.YouTube" class="form-control" />
+                <span asp-validation-for="AppSettings.YouTube" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="AppSettings.RegistrationIsOpened" /> @Html.DisplayNameFor(model => model.AppSettings.RegistrationIsOpened)
+                </label>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="AppSettings.LogoImagePath" class="control-label"></label>
+                <input asp-for="AppSettings.LogoImagePath" class="form-control" />
+                <span asp-validation-for="AppSettings.LogoImagePath" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
 </div>
 
 @section Scripts {
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
