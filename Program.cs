@@ -70,6 +70,7 @@ using (var scope = app.Services.CreateScope())
 using (var scope = app.Services.CreateScope())
 {
     var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
     
     foreach (var roleName in CeilUfas.Globals.RoleNames)
     {
@@ -77,6 +78,20 @@ using (var scope = app.Services.CreateScope())
         {
             await roleManager.CreateAsync(new IdentityRole(roleName));
         }
+    }
+
+    // Seed admin user
+    var adminUser = await userManager.FindByEmailAsync("djellal@univ-setif.dz");
+    if (adminUser == null)
+    {
+        var newAdminUser = new IdentityUser
+        {
+            UserName = "djellal@univ-setif.dz",
+            Email = "djellal@univ-setif.dz",
+            EmailConfirmed = true
+        };
+        await userManager.CreateAsync(newAdminUser, "DhB@571982");
+        await userManager.AddToRoleAsync(newAdminUser, Globals.Admin);
     }
 }
 
