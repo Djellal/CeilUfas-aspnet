@@ -16,4 +16,10 @@ public class AppSettings
     public string YouTube { get; set; }
     public bool RegistrationIsOpened { get; set; }
     public string LogoImagePath { get; set; } // New property for logo image
+    
+    // Add reference to current session
+    public int? CurrentSessionId { get; set; }
+    
+    [ForeignKey("CurrentSessionId")]
+    public Session CurrentSession { get; set; }
 }
